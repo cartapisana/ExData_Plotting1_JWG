@@ -35,7 +35,7 @@ plotData <- plotData[, DateTime := as.POSIXct(paste(plotData$Date1,
 dtPlot <- plotData[Date1 %between% c("2007-02-01", "2007-02-02")]
 
 ## Generate "plot3" as PNG using R base plotting system
-png(file = "plot3.png",width = 480, height = 480)
+png(file = "plot3.png", width = 480, height = 480)
 plot(dtPlot$DateTime, 
      dtPlot$Sub_metering_1,
      xlab = "",
