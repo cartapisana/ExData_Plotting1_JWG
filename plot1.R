@@ -2,7 +2,7 @@
 ## Coursera Data Science Specialization
 ## Exploratory Data Analysis - Course 4
 ## Peer-Reviewed Project - Week 1
-## Source: plot1.R
+## Source: plot2.R
 
 ## Download source data and execute ETL functions
 filename <- "household_power_consumption.zip"
@@ -20,12 +20,13 @@ library(data.table)
 
 ## Use fread() to handle large source data set
 plotTemp <- fread("household_power_consumption.txt", 
-                   header = TRUE, sep = ";", 
-                   na.strings = "?",
-                   data.table = TRUE)
+                  header = TRUE, sep = ";", 
+                  na.strings = "?",
+                  data.table = TRUE)
 
-## Convert "Date" variable from character using as.IDate; calculate weekdays
+## Convert "Date" "Time" variables using as.IDate() as.ITime(); calculate weekdays
 plotData <- plotTemp[, Date1 := as.IDate(plotTemp$Date, "%d/%m/%Y")]
+plotData <- plotData[, Time1 := as.ITime(plotData$Time, "%H:%M:%S")]
 plotData <- plotData[, WeekDay := weekdays.Date(plotData$Date1, abbreviate = TRUE)]
 
 ## Subset data into date range defined for project sample
