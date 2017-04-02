@@ -2,7 +2,7 @@
 ## Coursera Data Science Specialization
 ## Exploratory Data Analysis - Course 4
 ## Peer-Reviewed Project - Week 1
-## Source: plot2.R
+## Source: plot1.R
 
 ## Download source data and execute ETL functions
 filename <- "household_power_consumption.zip"
