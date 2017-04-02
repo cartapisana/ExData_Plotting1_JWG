@@ -24,10 +24,12 @@ plotTemp <- fread("household_power_consumption.txt",
                   na.strings = "?",
                   data.table = TRUE)
 
-## Convert "Date" "Time" variables using as.IDate() as.ITime(); calculate weekdays
+## Convert "Date" "Time" vars from character class; paste() "DateTime"
 plotData <- plotTemp[, Date1 := as.IDate(plotTemp$Date, "%d/%m/%Y")]
 plotData <- plotData[, Time1 := as.ITime(plotData$Time, "%H:%M:%S")]
-plotData <- plotData[, WeekDay := weekdays.Date(plotData$Date1, abbreviate = TRUE)]
+plotData <- plotData[, DateTime := as.POSIXct(paste(plotData$Date1, 
+                                              plotData$Time1), 
+                                              format = "%Y-%m-%d %H:%M:%S")]
 
 ## Subset data into date range defined for project sample
 dtPlot <- plotData[Date1 %between% c("2007-02-01", "2007-02-02")]
