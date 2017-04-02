@@ -35,7 +35,7 @@ plotData <- plotData[, DateTime := as.POSIXct(paste(plotData$Date1,
 dtPlot <- plotData[Date1 %between% c("2007-02-01", "2007-02-02")]
 
 ## Generate "plot1" as PNG using R base plotting system
-png(file = "plot1.png",width = 480, height = 480)
+png(file = "plot1.png", width = 480, height = 480)
 with(dtPlot, hist(Global_active_power, 
                     xlab = "Global Active Power (kilowatts)", 
                     col = "red", 
