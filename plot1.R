@@ -38,7 +38,9 @@ with(dtPlot, hist(Global_active_power,
                     main = "Global Active Power"))
 
 ## Copy "plot1" from screen device to PNG file w=480px h=480px
-dev.copy(png, file = "plot1.png", width = 480, height = 480)
+dev.copy(png, file = "plot1.png", 
+         width = 480, height = 480,
+         units = "px")
 
 ## Turn off PNG graphics device
 dev.off()
