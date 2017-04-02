@@ -34,18 +34,12 @@ plotData <- plotData[, DateTime := as.POSIXct(paste(plotData$Date1,
 ## Subset data into date range defined for project sample
 dtPlot <- plotData[Date1 %between% c("2007-02-01", "2007-02-02")]
 
-## Generate "plot2" using R base plotting system
+## Generate "plot2" as PNG using R base plotting system
+png(file = "plot2.png",width = 480, height = 480)
 plot(dtPlot$DateTime, 
      dtPlot$Global_active_power,
      xlab = "",
      ylab = "Global Active Power (kilowatts)",
      type = "l")
 
-## Copy "plot2" from screen device to PNG file w=480px h=480px
-dev.copy(png, file = "plot2.png",
-              width = 480, 
-              height = 480,
-              units = "px")
-
-## Turn off PNG graphics device
 dev.off()
