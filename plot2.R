@@ -42,4 +42,5 @@ plot(dtPlot$DateTime,
      ylab = "Global Active Power (kilowatts)",
      type = "l")
 
+## Turn off PNG graphics device
 dev.off()
